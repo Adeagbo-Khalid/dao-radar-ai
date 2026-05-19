@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<section class="discover-hero">
+  <div class="discover-container">
+    <h1>Discover <span>Opportunities</span></h1>
+    <p>Find DAOs, grants, bounties, and gigs powered by Zero Authority DAO API</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search opportunities...">
+      <button onclick="searchOpportunities()" class="btn-primary">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="opportunities">
+  <div class="opportunities-container">
+    <div class="filter-tabs">
+      <button class="tab active" onclick="filterTab(this, 'all')">All</button>
+      <button class="tab" onclick="filterTab(this, 'gig')">Gigs</button>
+      <button class="tab" onclick="filterTab(this, 'grant')">Grants</button>
+      <button class="tab" onclick="filterTab(this, 'bounty')">Bounties</button>
+    </div>
+    <div class="cards-grid" id="cardsGrid">
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Loading opportunities...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/js/discover.js"></script>
+
+<%- include('partials/footer') %>
