@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<section class="dashboard">
+  <div class="dashboard-container">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="profile-info">
+        <h1><%= user.username %></h1>
+        <p><%= user.email %></p>
+        <span class="reputation-badge">Reputation: <%= user.reputation %></span>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-bookmark"></i></div>
+        <h3><%= saved.length %></h3>
+        <p>Saved Opportunities</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-star"></i></div>
+        <h3><%= user.reputation %></h3>
+        <p>Reputation Score</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-wallet"></i></div>
+        <h3><%= user.walletAddress || 'Not set' %></h3>
+        <p>Wallet Address</p>
+      </div>
+    </div>
+
+    <div class="dashboard-section">
+      <h2>Saved Opportunities</h2>
+      <% if (saved.length === 0) { %>
+        <div class="empty-state">
+          <i class="fas fa-bookmark"></i>
+          <p>No saved opportunities yet. <a href="/discover">Discover now</a></p>
+        </div>
+      <% } else { %>
+        <div class="cards-grid">
+          <% saved.forEach(function(item) { %>
+            <div class="card">
+              <span class="card-type"><%= item.type.toUpperCase() %></span>
+              <h3><%= item.title %></h3>
+              <p><%= (item.description || '').substring(0, 100) %>...</p>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+
+    <div class="dashboard-actions">
+      <a href="/dashboard" class="btn-secondary">Back to Dashboard</a>
+      <a href="/logout" class="btn-secondary">Logout</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

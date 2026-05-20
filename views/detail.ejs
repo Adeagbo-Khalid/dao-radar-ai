@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<section class="detail-page">
+  <div class="detail-container">
+    <a href="/discover" class="back-btn">← Back to Discover</a>
+    <div class="detail-card">
+      <span class="card-type"><%= type.toUpperCase() %></span>
+      <h1><%= item.title || item.name || 'Unnamed' %></h1>
+      <p class="detail-desc"><%= item.description || item.details || 'No description available.' %></p>
+      <div class="detail-meta">
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value"><%= item.status || 'N/A' %></span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Reward</span>
+          <span class="meta-value"><%= item.reward || item.totalValue || 'N/A' %></span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Network</span>
+          <span class="meta-value"><%= item.network || 'Stacks' %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

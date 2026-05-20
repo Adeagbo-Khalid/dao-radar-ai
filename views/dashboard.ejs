@@ -1,0 +1,67 @@
+<%- include('partials/header') %>
+
+<section class="dashboard">
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Welcome back, <span><%= user.username %></span></h1>
+      <p>Here's your Web3 opportunity overview</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+        <h3><%= stats.bounties %>+</h3>
+        <p>Bounties</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+        <h3><%= stats.gigs %>+</h3>
+        <p>Gigs</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <h3><%= stats.grants %>+</h3>
+        <p>Grants</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-star"></i></div>
+        <h3><%= user.reputation %></h3>
+        <p>Reputation</p>
+      </div>
+    </div>
+
+    <div class="dashboard-actions">
+      <a href="/discover" class="btn-primary">Explore Opportunities</a>
+      <a href="/profile" class="btn-secondary">View Profile</a>
+      <a href="/logout" class="btn-secondary">Logout</a>
+    </div>
+
+    <div class="dashboard-section">
+      <h2>Quick Actions</h2>
+      <div class="quick-grid">
+        <a href="/discover" class="quick-card">
+          <i class="fas fa-search"></i>
+          <h3>Discover</h3>
+          <p>Find new opportunities</p>
+        </a>
+        <a href="/discover" class="quick-card">
+          <i class="fas fa-trophy"></i>
+          <h3>Bounties</h3>
+          <p>Earn rewards</p>
+        </a>
+        <a href="/discover" class="quick-card">
+          <i class="fas fa-hand-holding-usd"></i>
+          <h3>Grants</h3>
+          <p>Fund your project</p>
+        </a>
+        <a href="/discover" class="quick-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>Gigs</h3>
+          <p>Find work</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+#loader { position: fixed; top:0; left:0; width:100%; height:100%; background:#050816; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999; transition:opacity 0.5s; }
+#loader img { height:120px; animation:pulse 1.5s infinite; }
+#loader p { color:#22D3EE; margin-top:1rem; letter-spacing:3px; }
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:0.7;} }
+</style>
 </head>
 <body>
 
@@ -18,6 +24,8 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/discover">Discover</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/login" class="btn-primary" style="padding: 0.5rem 1.2rem;">Login</a></li>
     </ul>
   </div>
 </nav>

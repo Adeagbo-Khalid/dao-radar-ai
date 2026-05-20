@@ -64,4 +64,20 @@ router.get('/api/stats', async (req, res) => {
   }
 });
 
+router.get('/detail/:type/:id', async (req, res) => {
+  try {
+    const { type, id } = req.params;
+    let url = '';
+    if (type === 'bounty') url = `${API_BASE}/bounties/${id}`;
+    if (type === 'gig') url = `${API_BASE}/gigs/${id}`;
+    if (type === 'grant') url = `${API_BASE}/grants/${id}`;
+    const response = await axios.get(url);
+    const item = response.data.data || response.data;
+    res.render('detail', { title: item.title || item.name || 'Detail', item, type });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;

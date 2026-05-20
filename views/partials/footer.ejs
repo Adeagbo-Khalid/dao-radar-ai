@@ -12,6 +12,19 @@
     <p class="footer-copy">© 2026 DAO Radar AI. All rights reserved.</p>
   </div>
 </footer>
+<div id="loader">
+  <img src="/logo.png" alt="DAO Radar AI">
+  <p>LOADING...</p>
+</div>
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var l = document.getElementById('loader');
+    l.style.opacity = '0';
+    setTimeout(function(){ l.style.display='none'; }, 500);
+  }, 1500);
+});
+</script>
 
 </body>
 </html>

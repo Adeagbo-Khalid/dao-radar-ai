@@ -29,7 +29,7 @@ function renderCards(items) {
       '<h3>' + item.displayName + '</h3>' +
       '<p>' + item.displayDesc.substring(0, 120) + '...</p>' +
       '<div class="card-footer">' +
-      '<a href="#" class="card-link">View →</a>' +
+      '<a href="/detail/' + item.type + '/' + item.id + '" class="card-link">View →</a>' +
       '</div></div>';
   }).join('');
 }
