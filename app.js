@@ -27,11 +27,13 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const dashboardRouter = require('./routes/dashboard');
 const profileRouter = require('./routes/profile');
+const settingsRouter = require('./routes/settings');
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', dashboardRouter);
 app.use('/', profileRouter);
+app.use('/', settingsRouter);
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))

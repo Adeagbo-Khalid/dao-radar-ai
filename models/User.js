@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
   interests: [String],
   reputation: { type: Number, default: 0 },
   avatar: { type: String, default: '' },
+  twitterHandle: { type: String, default: '' },
   createdAt: { type: Date, default: Date.now }
 });
 

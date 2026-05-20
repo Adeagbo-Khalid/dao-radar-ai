@@ -1,0 +1,127 @@
+<%- include('partials/header') %>
+
+<section class="dashboard">
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Account <span>Settings</span></h1>
+      <p>Manage your profile, wallet, and security</p>
+    </div>
+
+    <% if (success) { %>
+      <div class="alert-success"><i class="fas fa-check-circle"></i> <%= success %></div>
+    <% } %>
+    <% if (error) { %>
+      <div class="alert-error"><i class="fas fa-exclamation-circle"></i> <%= error %></div>
+    <% } %>
+
+    <div class="settings-grid">
+        <!-- Profile Picture -->
+<div class="settings-card">
+  <h3><i class="fas fa-camera"></i> Profile Picture</h3>
+  <div style="text-align:center; margin-bottom:1.5rem;">
+    <% if (user.avatar) { %>
+      <img src="<%= user.avatar %>" style="width:100px; height:100px; border-radius:50%; object-fit:cover; border:3px solid #22D3EE;">
+    <% } else { %>
+      <i class="fas fa-user-circle" style="font-size:5rem; color:#22D3EE;"></i>
+    <% } %>
+  </div>
+  <form action="/settings/avatar" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Upload Photo</label>
+      <input type="file" name="avatar" accept="image/*" style="color:white;">
+    </div>
+    <button type="submit" class="btn-primary">Upload Picture</button>
+  </form>
+</div>
+
+      <!-- Update Profile -->
+      <div class="settings-card">
+        <h3><i class="fas fa-user"></i> Update Profile</h3>
+        <form action="/settings/profile" method="POST">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" value="<%= user.username %>">
+          </div>
+          <div class="form-group">
+            <label>Skills (comma separated)</label>
+            <input type="text" name="skills" value="<%= user.skills.join(', ') %>" placeholder="e.g. Solidity, React, Web3">
+          </div>
+          <div class="form-group">
+            <label>Interests (comma separated)</label>
+            <input type="text" name="interests" value="<%= user.interests.join(', ') %>" placeholder="e.g. DeFi, DAOs, NFTs">
+          </div>
+          <button type="submit" class="btn-primary">Save Profile</button>
+        </form>
+      </div>
+
+      <!-- Connect Wallet -->
+      <div class="settings-card">
+        <h3><i class="fas fa-wallet"></i> Connect Wallet</h3>
+        <p class="settings-desc">Link your Web3 wallet address to your profile</p>
+        <form action="/settings/wallet" method="POST">
+          <div class="form-group">
+            <label>Wallet Address</label>
+            <input type="text" name="walletAddress" value="<%= user.walletAddress || '' %>" placeholder="0x... or STX address">
+          </div>
+          <button type="submit" class="btn-primary">Connect Wallet</button>
+        </form>
+        <button class="btn-secondary" style="margin-top:1rem; width:100%;" onclick="connectMetaMask()">
+          <i class="fab fa-ethereum"></i> Auto-detect MetaMask
+        </button>
+      </div>
+
+      <!-- Change Password -->
+      <div class="settings-card">
+        <h3><i class="fas fa-lock"></i> Change Password</h3>
+        <form action="/settings/password" method="POST">
+          <div class="form-group">
+            <label>Current Password</label>
+            <input type="password" name="currentPassword" placeholder="Enter current password">
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <input type="password" name="newPassword" placeholder="Enter new password">
+          </div>
+          <button type="submit" class="btn-primary">Update Password</button>
+        </form>
+      </div>
+
+      <!-- Connect Twitter -->
+      <div class="settings-card">
+        <h3><i class="fab fa-x-twitter"></i> Connect X Account</h3>
+        <p class="settings-desc">Link your X (Twitter) account to your profile</p>
+        <div class="form-group">
+          <label>X Username</label>
+          <input type="text" id="twitterHandle" placeholder="@yourusername">
+        </div>
+        <a href="https://x.com/daoradar123" target="_blank" class="btn-primary" style="display:block; text-align:center;">
+          <i class="fab fa-x-twitter"></i> Follow @daoradar123
+        </a>
+      </div>
+
+    </div>
+
+    <div class="dashboard-actions" style="margin-top:2rem;">
+      <a href="/dashboard" class="btn-secondary">Back to Dashboard</a>
+      <a href="/logout" class="btn-secondary">Logout</a>
+    </div>
+  </div>
+</section>
+
+<script>
+async function connectMetaMask() {
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      document.querySelector('input[name="walletAddress"]').value = accounts[0];
+      alert('Wallet detected: ' + accounts[0]);
+    } catch (err) {
+      alert('Connection rejected');
+    }
+  } else {
+    alert('MetaMask not found. Please install MetaMask extension.');
+  }
+}
+</script>
+
+<%- include('partials/footer') %>

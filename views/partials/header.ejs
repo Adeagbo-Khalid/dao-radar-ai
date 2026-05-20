@@ -14,11 +14,6 @@
   #loader p { color:#22D3EE; margin-top:1rem; letter-spacing:3px; }
   @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:0.7;} }
   </style>
-  <script>
-    if (localStorage.getItem('theme') === 'light') {
-      document.documentElement.classList.add('light');
-    }
-  </script>
 </head>
 <body>
 
@@ -28,11 +23,12 @@
       <img src="/logo.png" alt="DAO Radar AI" class="nav-logo-img">
     </a>
     <ul class="nav-links">
-   
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
-          <i class="fas fa-moon"></i>
-        </button>
-      </li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/discover">Discover</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/settings">Settings</a></li>
+      <li><a href="/login" class="btn-primary" style="padding:0.5rem 1.2rem;">Login</a></li>
+
     </ul>
   </div>
 </nav>
