@@ -58,3 +58,21 @@ document.getElementById('searchInput').addEventListener('keypress', function(e) 
 });
 
 fetchAll();
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  var btn = document.getElementById('themeBtn');
+  if (document.body.classList.contains('light')) {
+    btn.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'light');
+  } else {
+    btn.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
+// Load saved theme
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light');
+  var btn = document.getElementById('themeBtn');
+  if (btn) btn.innerHTML = '<i class="fas fa-sun"></i>';
+}

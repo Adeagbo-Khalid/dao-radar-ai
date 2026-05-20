@@ -709,3 +709,65 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/* LIGHT THEME */
+body.light {
+  background-color: #f0f4ff;
+  color: #050816;
+}
+body.light .navbar { background: rgba(240,244,255,0.9); border-bottom: 1px solid rgba(0,0,0,0.1); }
+body.light .feature-card,
+body.light .stat-card,
+body.light .card,
+body.light .auth-card,
+body.light .detail-card,
+body.light .quick-card { background: #ffffff; border-color: rgba(0,0,0,0.1); color: #050816; }
+body.light .feature-card p,
+body.light .card p,
+body.light .auth-sub,
+body.light .dashboard-header p { color: rgba(0,0,0,0.6); }
+body.light .footer { background: #e0e8ff; border-top: 1px solid rgba(0,0,0,0.1); }
+body.light .nav-links a { color: #050816; }
+body.light .hero { background: radial-gradient(ellipse at top, #c7d8ff 0%, #f0f4ff 70%); }
+body.light .features { background: #f0f4ff; }
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+body.light .theme-toggle { color: #050816; border-color: rgba(0,0,0,0.2); }
+.theme-toggle:hover { border-color: var(--cyan); }
+/* LIGHT THEME */
+html.light body { background-color: #f0f4ff; color: #050816; }
+html.light .navbar { background: rgba(240,244,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.1); }
+html.light .nav-links a { color: #050816; }
+html.light .hero { background: radial-gradient(ellipse at top, #c7d8ff 0%, #f0f4ff 70%); }
+html.light .features { background: #f0f4ff; }
+html.light .feature-card,
+html.light .stat-card,
+html.light .card,
+html.light .auth-card,
+html.light .detail-card,
+html.light .quick-card,
+html.light .dashboard { background-color: #f0f4ff; }
+html.light .feature-card,
+html.light .stat-card,
+html.light .card,
+html.light .quick-card { background: #ffffff; border-color: rgba(0,0,0,0.1); }
+html.light .footer { background: #e0e8ff; border-top: 1px solid rgba(0,0,0,0.1); }
+html.light .footer-brand p,
+html.light .footer-copy,
+html.light .footer-links a { color: rgba(0,0,0,0.6); }
+html.light .feature-card p,
+html.light .card p { color: rgba(0,0,0,0.6); }
+html.light .theme-toggle { color: #050816; border-color: rgba(0,0,0,0.2); }
+html.light .discover-hero { background: radial-gradient(ellipse at top, #c7d8ff 0%, #f0f4ff 70%); }
+html.light .search-bar input { background: #fff; color: #050816; border-color: rgba(0,0,0,0.2); }
+html.light .form-group input { background: #fff; color: #050816; }
+html.light .auth-card { background: #ffffff; }
+html.light .profile-header { background: #ffffff; }

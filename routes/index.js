@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
 
 router.get('/discover', async (req, res) => {
   try {
+    if (!req.session.token) return res.redirect('/login');
     res.render('discover', { title: 'Discover Opportunities' });
   } catch (err) {
     res.status(500).send('Server Error');
@@ -66,6 +67,7 @@ router.get('/api/stats', async (req, res) => {
 
 router.get('/detail/:type/:id', async (req, res) => {
   try {
+    if (!req.session.token) return res.redirect('/login');
     const { type, id } = req.params;
     let url = '';
     if (type === 'bounty') url = `${API_BASE}/bounties/${id}`;
@@ -75,7 +77,7 @@ router.get('/detail/:type/:id', async (req, res) => {
     const item = response.data.data || response.data;
     res.render('detail', { title: item.title || item.name || 'Detail', item, type });
   } catch (err) {
-    console.error(err);
+    console.log('DETAIL ERROR:', err.message);
     res.status(500).send('Server Error');
   }
 });
