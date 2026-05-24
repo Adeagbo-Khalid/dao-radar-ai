@@ -3,10 +3,10 @@
 <section class="discover-hero">
   <div class="discover-container">
     <h1>Discover <span>Opportunities</span></h1>
-    <p>Find DAOs, grants, bounties, and gigs powered by Zero Authority DAO API</p>
+    <p>Find DAOs, grants, bounties, quests, events and gigs powered by Zero Authority DAO API</p>
     <div class="search-bar">
       <input type="text" id="searchInput" placeholder="Search opportunities...">
-      <button onclick="searchOpportunities()" class="btn-primary">Search</button>
+      <button onclick="searchOpportunities()" class="btn-primary"><i class="fas fa-search"></i> Search</button>
     </div>
   </div>
 </section>
@@ -14,10 +14,24 @@
 <section class="opportunities">
   <div class="opportunities-container">
     <div class="filter-tabs">
-      <button class="tab active" onclick="filterTab(this, 'all')">All</button>
-      <button class="tab" onclick="filterTab(this, 'gig')">Gigs</button>
-      <button class="tab" onclick="filterTab(this, 'grant')">Grants</button>
-      <button class="tab" onclick="filterTab(this, 'bounty')">Bounties</button>
+      <button class="tab active" onclick="filterTab(this, 'all')">
+        <i class="fas fa-th"></i> All
+      </button>
+      <button class="tab" onclick="filterTab(this, 'bounty')">
+        <i class="fas fa-trophy"></i> Bounties
+      </button>
+      <button class="tab" onclick="filterTab(this, 'gig')">
+        <i class="fas fa-briefcase"></i> Gigs
+      </button>
+      <button class="tab" onclick="filterTab(this, 'grant')">
+        <i class="fas fa-hand-holding-usd"></i> Grants
+      </button>
+      <button class="tab" onclick="filterTab(this, 'quest')">
+        <i class="fas fa-tasks"></i> Quests
+      </button>
+      <button class="tab" onclick="filterTab(this, 'event')">
+        <i class="fas fa-calendar"></i> Events
+      </button>
     </div>
     <div class="cards-grid" id="cardsGrid">
       <div class="loading">

@@ -48,6 +48,24 @@ router.get('/api/grants', async (req, res) => {
   }
 });
 
+router.get('/api/quests', async (req, res) => {
+  try {
+    const response = await axios.get(`${API_BASE}/quests`);
+    res.json(response.data.data || response.data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch quests' });
+  }
+});
+
+router.get('/api/events', async (req, res) => {
+  try {
+    const response = await axios.get(`${API_BASE}/events`);
+    res.json(response.data.data || response.data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch events' });
+  }
+});
+
 router.get('/api/stats', async (req, res) => {
   try {
     const [bounties, gigs, grants] = await Promise.all([
@@ -73,6 +91,8 @@ router.get('/detail/:type/:id', async (req, res) => {
     if (type === 'bounty') url = `${API_BASE}/bounties/${id}`;
     if (type === 'gig') url = `${API_BASE}/gigs/${id}`;
     if (type === 'grant') url = `${API_BASE}/grants/${id}`;
+    if (type === 'quest') url = `${API_BASE}/quests/${id}`;
+    if (type === 'event') url = `${API_BASE}/events/${id}`;
     const response = await axios.get(url);
     const item = response.data.data || response.data;
     res.render('detail', { title: item.title || item.name || 'Detail', item, type });

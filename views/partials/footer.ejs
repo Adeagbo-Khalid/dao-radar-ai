@@ -4,12 +4,26 @@
       <img src="/logo.png" alt="DAO Radar AI" style="height: 60px; margin-bottom: 1rem;">
       <p>Discover • Match • Contribute</p>
     </div>
-    <div class="footer-links">
-      <a href="https://x.com/daoradar123" target="_blank"><i class="fab fa-x-twitter"></i> @daoradar123</a>
-      <a href="/">Home</a>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="/dashboard">Dashboard</a>
       <a href="/discover">Discover</a>
+      <a href="/profile">Profile</a>
+      <a href="/settings">Settings</a>
     </div>
-    <p class="footer-copy">© 2026 DAO Radar AI. All rights reserved.</p>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="https://zeroauthoritydao.com/api-docs" target="_blank">API Docs</a>
+      <a href="https://zeroauthoritydao.com/guides/mcp" target="_blank">MCP Guide</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://x.com/daoradar123" target="_blank"><i class="fab fa-x-twitter"></i> @daoradar123</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DAO Radar AI. All rights reserved.</p>
+    <p>Powered by Zero Authority DAO</p>
   </div>
 </footer>
 
@@ -27,6 +41,23 @@ window.addEventListener('load', function() {
     l.style.opacity = '0';
     setTimeout(function(){ l.style.display='none'; }, 500);
   }, 1500);
+});
+
+function toggleMenu() {
+  var nav = document.getElementById('navLinks');
+  var ham = document.getElementById('hamburger');
+  nav.classList.toggle('active');
+  ham.classList.toggle('active');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  var nav = document.getElementById('navLinks');
+  var ham = document.getElementById('hamburger');
+  if (!nav.contains(e.target) && !ham.contains(e.target)) {
+    nav.classList.remove('active');
+    ham.classList.remove('active');
+  }
 });
 </script>
 

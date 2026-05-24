@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %> | DAO Radar AI</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="/logo.png">
   <style>
   #loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#050816; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999; transition:opacity 0.5s; }
-  #loader img { height:120px; animation:pulse 1.5s infinite; }
-  #loader p { color:#22D3EE; margin-top:1rem; letter-spacing:3px; }
-  @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:0.7;} }
+  #loader img { height:120px; border-radius:50%; animation:pulse 1.5s infinite; }
+  #loader p { color:#22D3EE; margin-top:1rem; letter-spacing:3px; font-size:0.8rem; }
+  @keyframes pulse { 0%,100%{transform:scale(1);box-shadow:0 0 20px rgba(34,211,238,0.3);} 50%{transform:scale(1.08);box-shadow:0 0 40px rgba(34,211,238,0.6);} }
   </style>
 </head>
 <body>
@@ -22,13 +22,17 @@
     <a href="/" class="nav-logo">
       <img src="/logo.png" alt="DAO Radar AI" class="nav-logo-img">
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
       <li><a href="/discover">Discover</a></li>
       <li><a href="/dashboard">Dashboard</a></li>
       <li><a href="/settings">Settings</a></li>
       <li><a href="/login" class="btn-primary" style="padding:0.5rem 1.2rem;">Login</a></li>
-
     </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </nav>
